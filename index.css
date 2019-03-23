@@ -1,6 +1,12 @@
 /* make all img the same size: */
+body {
+    background-color: antiquewhite;
+}
+main {
+    padding: 3px;
+    margin: auto;
 
-
+}
 .flex-container {
     background: url(images/bckgroundtrees.jpeg) no-repeat center;
     align-items: stretch;
@@ -8,6 +14,7 @@
     justify-content: center;
     flex-direction: column;
     width: 60%;
+    height: 100%;
 }
 img {
     width: 150px;
@@ -15,4 +22,16 @@ img {
     padding: 2px solid;
     margin: auto;
     border: 3px solid black;
+}
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 43px;
+    margin: 5px;
+    padding: 3px;
+}
+
+p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    padding: 5px;
 }

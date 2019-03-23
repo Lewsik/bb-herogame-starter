@@ -18,20 +18,26 @@ const weapon = {type: 'dagger',
 const spear = {type: 'weapon2',
                 damage: 3}
 
+// create form that allows user to change hero name:
+
+
 // when inn is clicked, health replenishes:
 inn.addEventListener('click', function() {
-    hero.health = 10
+    rest(hero)
+    displayStats()
 })
 
 // when dagger is clicked it adds weapon object to inventory array:
 dagger.addEventListener('click', function() {
-    hero.inventory.push(weapon)
+    pickUpItem(hero, weapon)
+    displayStats()
 })
 
 // when bag is clicked it equips hero with the first elem from
 // inventory arr:
 bag.addEventListener('click', function() {
-    hero.weapon = hero.inventory[0]
+    equipWeapon(hero)
+    displayStats()
 })
 
 // when 'hero' 'rests' health is replenished:
@@ -49,14 +55,25 @@ function pickUpItem(hero, newItem) {
     hero.inventory.push(newItem)
 }
 
-//assigns weapon to the first elem of inventory:
+// assigns weapon to the first elem of inventory:
 function equipWeapon(hero) {
     // if inventory is empty, function should do nothing:
-    if(hero.inventory.length === 0) {
-        return hero.weapon
-    } else {
-    hero.weapon = hero.inventory[0]
+    if (hero.inventory.length > 0) {
+        hero.weapon = hero.inventory[0]
     }
 }
 
+// display hero's name, health, weapon type, weapon damage at page:
+function displayStats() {
+    const paragraph = document.querySelector("#stats p")
+    const heroStats = 'Character name: ' + hero.name + '\n'
+                    + 'Health: ' + hero.health + '\n'
+                    + 'Weapon type: ' + hero.weapon.type + '\n'
+                    + 'Weapon damage: ' + hero.weapon.damage + '\n'
+    paragraph.innerText = heroStats
+}
+
+
+// call at the en of script:
+displayStats()
 
